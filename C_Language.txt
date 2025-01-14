@@ -61,3 +61,30 @@ int main(){
     return 0;
     
 }
+
+Q4.Checking a number is prime or not
+#include<stdio.h>
+int main(){
+    int n,count;
+    scanf("%d",&n);
+    if (n<2 or n>10000){
+        printf("Enter a valid input");
+    }
+    else{
+        for(int i=2;i<=n;i++){
+            if (n%i==0){
+                count++;
+            }
+        }
+      
+        if (count>2){
+            printf("%d is not a prime number.",n);
+        }
+        else{
+            printf("%d is a prime number.",n);
+        }
+        }
+    return 0;
+}
+
+
