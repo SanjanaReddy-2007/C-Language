@@ -181,4 +181,91 @@ int main(){
 
 }
 
+8.Lisa has discovered an interesting pattern in numbers, where alternating chunks of digits are extracted, reversed, and used to form a sum. Given a number N and a chunk size M, the number is split into chunks of size M starting from the rightmost side. These chunks are then reversed, and alternating chunks are added and subtracted to form a final sum.Your task is to implement a program that calculates this final alternating sum based on the reversed chunks.
+Answer
+#include<stdio.h>
+#include<math.h>
+int alternating_sum(int a,int b);
+int main(){
+ int a;
+ int b;
+ scanf("%d",&a);
+ scanf("%d",&b);
+ int result=alternating_sum(a,b);
+ printf("%d",result);
+ return 0;
+}int alternating_sum(int a,int b){
+ int total_sum=0;
+ int add=1;
+ while(a>0){
+ int chunk=a%(int)pow(10,b);
+ total_sum+=chunk*add;
+ add*=-1;
+ a/=(int)pow(10,b);
+ }
+ return total_sum;
+}
+
+9.Neha runs a ftness center and wants to create a system to calculate the total membership fee based on the type of plan a customer selects.Customers can choose from three membership options:Basic Plan:Charge Rs 1,000 per month. (total_fee = duration * 1000)If the duration exceeds 6 months, give a 5% discount on the total fee. (total_fee =total_fee - (total_fee * 5 / 100)).Standard Plan:Charge Rs 1,500 per month. (total_fee = duration * 1500)If the duration exceeds 12 months, give a 10% discount on the total fee. (total_fee =total_fee - (total_fee * 10/ 100)).Premium Plan:Charge Rs 2,500 per month. ( total_fee = duration * 2500)If the duration exceeds 18 months, give a 15% discount on the total fee. (total_fee =total_fee - (total_fee * 15 / 100)).Task: Based on the customer’s choice, calculate the total membership fee.
+//Fitness Center Program
+#include<stdio.h>
+int main(){
+ int choice,n;
+ scanf("%d",&choice);
+ scanf("%d",&n);
+ int total;
+ if (choice==1){
+ total=1000*n;
+ if (n>6){
+ total-=(1000*n)*0.05;
+ }
+ }
+ else if(choice==2){
+ total=1500*n;
+ if (n>12){
+ total-=(1500*n)*0.10;
+ }
+ }
+ else if(choice==3){
+ total=2500*n;
+ if (n>18){
+ total-=(2500*n)*0.15;
+ }
+ }
+ printf("%d",total);
+ return 0;
+}
+
+10.Noah analyzes numbers in a given range, where the product of their digits is a perfect cube. He wants to identify and print all such numbers between two integers.Your task is to write a program for Noah to fnd and print all numbers in the range where the product of their digits is a perfect cube.
+//To print perfect cubes in a range
+#include<stdio.h>
+#include<math.h>
+int is_perfect_cube(int n){
+ int cube_root=cbrt(n);
+ if (cube_root==0){
+ return 0;
+ }
+ else
+ return cube_root*cube_root*cube_root==n;
+}
+int product_of_digits(int n){
+ int product=1;
+ while(n>0){
+ product*=n%10;
+ n/=10;
+ }
+ return product;
+}
+int main(){
+ int a,b;
+ scanf("%d %d",&a,&b);
+ for(int i=a;i<=b;i++){
+ if(is_perfect_cube(product_of_digits(i))){
+ printf("%d ",i);
+ }
+ }
+ return 0;
+}
+
+
 
