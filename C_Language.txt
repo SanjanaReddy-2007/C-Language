@@ -86,5 +86,99 @@ int main(){
         }
     return 0;
 }
+Q5.Antony is tasked with developing a program that takes an integer input and performs different operations based on whether the number is odd or even. If the input number is odd, the program should reverse it.If it's even, it should calculate the sum of its digits. 
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    if (n%2==0){
+        int n1=n,rem,sum=0;
+        while(n1>0){
+            rem=n1%10;
+            n1=n1/10;
+            sum+=rem;
+        }
+        printf("Sum of digits: %d",sum);
+    }
+    else{
+        int n2=n,rem,res=0;
+        while(n2>0){
+            rem=n2%10;
+            n2=n2/10;
+            if(n2!=0){
+                res=(res+rem)*10;
+            }
+            else{
+                res=res+rem;
+            }
+        }
+        printf("Reversed number: %d",res);
+    }
+    return 0;
+}
+
+Q6.Amit and Angel wants to create a program where they are given the ages of two people, a current year, and a future year. They want to calculate the number of years until one person is twice as old as the other. 
+//Program to compare ages
+#include<stdio.h>
+int main(){
+    int A,B,C,F,diff;
+    scanf("%d\n%d\n%d\n%d",&A,&B,&C,&F);
+    diff=F-C;
+    if (2*A==B or A==2*B){
+        printf("0");
+    }
+    else{
+        int wanted;
+        wanted=B-2*A;
+        if (wanted<0){
+            wanted=2*B-A;
+            if (wanted<0){
+                wanted=A-2*B;
+            }
+        }
+        else{
+            wanted=wanted;
+        }
+        if (wanted>diff){
+            printf("No such year found up to %d",F);
+        }
+        else{
+            printf("%d",wanted);
+        }
+    }
+    return 0;
+}
+7.Raj wants to calculate the total cost of renting a car based on the rental duration and the type of car.The rental cost is determined by the following rules:Car Type Rates:Economy (E): Rs 1000 per dayLuxury (L): Rs 2000 per day;Insurance Charge:If the rental duration exceeds 7 days, an additional long-term rental insurance charge of Rs 1500 is added to the total cost.Total Rental Cost Formula:Total Cost = (Number of Days × Rate Per Day) + Insurance Charge (if
+applicable)
+Answer
+//Rental Cost
+#include<stdio.h>
+int main(){
+ int n;
+ char str;
+ float total=0;
+ scanf("%d\n%c",&n,&str);
+ if (str=='E'){
+ total=n*1000;
+ if (n>7 and n<=30){
+ total+=1500;
+ }
+ else if(n>30){
+ printf("Invalid number of days");
+ }
+ }
+ else if(str=='L'){
+ total=n*2000;
+ if (n>7 and n<=30){
+ total+=1500;
+ }
+ else if(n>30){
+ printf("Invalid number of days");
+ }
+ }
+ printf("%.2f",total);
+ return 0;
+
+}
 
 
