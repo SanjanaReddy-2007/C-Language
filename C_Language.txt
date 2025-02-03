@@ -267,5 +267,429 @@ int main(){
  return 0;
 }
 
+11.Raveena is developing a program to analyze an integer array. Her task is to identify and tally the negative numbers within this array. This analysis is crucial for Raveena's dataset, as negative values might represent specific conditions or anomalies that require further investigation. Write a program that assists Raveena in counting and displaying the number of negative elements in an integer array.
+#include<stdio.h>
+int main(){
+    int n,arr[10];
+    int count=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+        if(arr[i]<0){
+            count++;
+        }
+        else
+            continue;
+    }
+    if (count!=0){
+        printf("Total negative elements in array = %d",count);
+    }
+    else{
+        printf("No negative elements in the array");
+    }
+    return 0;
+}
+
+12.Aishu is working on an array manipulation project and needs to find the maximum and minimum elements in an array of integers. Write a program that takes an array of integers as input and finds the maximum and minimum elements in it.The first line consists of an integer n, representing the array size.The second line input consists of n space-separated integers, representing the array elements.
+// Maximum and Minimum values in an array
+#include<stdio.h>
+int main(){
+    int n,arr[20];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int p=arr[0],q=arr[0];
+    for(int i=0;i<n;i++){
+        if (arr[i]>p){
+            p=arr[i];
+        }
+        else
+            continue;
+    }
+    for(int i=0;i<n;i++){
+        if(arr[i]<q){
+            q=arr[i];
+        }
+        else{
+            continue;
+        }
+    }
+    printf("Maximum element is: %d\n",p);
+    printf("Minimum element is: %d",q);
+    return 0;
+}
+
+13.Rajdeep is exploring matrices. He wants to write a program to display the lower triangular part of a square matrix. You have to assist him in creating the code.Write a program that takes an integer N as input and a square matrix of size NxN. Implement the logic to display the lower triangular part of the matrix.
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%d",&arr[i][j]);
+            if (j>i){
+                arr[i][j]=0;
+            }
+            else
+                continue;
+        }
+    }
+    for (int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+14.In a mathematics class, students are learning about matrices and their properties. The teacher has assigned a task to the students to calculate the sum of each row in a 3x3 matrix.As a programmer, assist the students in calculating the sum by creating a program.The input consists of the elements of the 3x3 matrix.The output prints the sum of each row of the matrix in each line.
+//Sum of each row in a matrix
+#include<stdio.h>
+int main(){
+    int arr[3][3];
+    int sum=0;
+    for(int i=0;i<3;i++){
+        sum=0;
+        for(int j=0;j<3;j++){
+            scanf("%d",&arr[i][j]);
+            sum+=arr[i][j];
+        }
+        printf("\n");
+        printf("Sum of row %d: %d",i,sum);
+    }
+    return 0;
+}
+
+15.Misha wants to check and print whether the given number N is a neon number or not. Write a program that uses a function and helps her to complete this task.A neon number is a number where the sum of digits of the square of the number is equal to the number.Function Prototype: int neon(int).The input consists of an integer, N.If N is a neon number, print "N is a neon number" Otherwise, print "N is not a neon number".
+#include<stdio.h>
+int neon(int N){
+    int square=N*N;
+    int sum_of_digits=0;
+    while (square>0){
+        sum_of_digits+=square%10;
+        square/=10;
+    }
+    if (sum_of_digits==N){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int N;
+    scanf("%d",&N);
+    if (neon(N)){
+        printf("%d is a neon number\n",N);
+    }
+    else{
+        printf("%d is not a neon number\n",N);
+    }
+    return 0;
+}
+
+16.Design a program to input a numeric base and exponent, efficiently calculate and display the result of the base raised to the given exponent. Use a function called calculatePower() that calculates and outputs the result.The first line of input consists of an integer b, representing the base value.
+The second line consists of an integer e, representing the exponent value.The output prints an integer representing the result of the base raised to the exponent value.The output prints an integer representing the result of the base raised to the exponent value.
+//Calculating power of a number
+#include<stdio.h>
+int calculatePower(int a,int b){
+    int res=1;
+    for(int i=1;i<=b;i++){
+        res*=a;
+    }
+    return res;
+}
+int main(){
+    int b,e;
+    scanf("%d\n%d",&b,&e);
+    int p=calculatePower(b,e);
+    printf("%d",p);
+    return 0;
+}
+
+17.Ramesh is currently working on a program to concatenate two strings efficiently. He wants to create a tool that can take two input strings, concatenate them, and then display the resulting string.Help him in the program.The input consists of two strings in separate lines.The output displays a single string, which is the concatenation of the two input strings without any space.Each input string has a maximum length of 25 characters.The input string should be lowercase and uppercase letters without any spaces.
+//Concateinating Strings
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str1[100],str2[20];
+    scanf("%s",str1);
+    scanf("%s",str2);
+    strcat(str1,str2);
+    printf("%s",str1);
+    return 0;
+}
+
+18.Abi is currently working on a program to calculate the length of a given string. She needs a tool that can efficiently determine the number of characters in a string.Help her to complete task.The input consists of the string without space.The output prints the length of the string.The input string consists of a maximum of 50 characters.
+//Calculating Lenght of a string
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char a[100];
+    scanf("%s",&a);
+    printf("%d",strlen(a));
+    return 0;
+}
+
+19.Philip needs a program that reads 10 integers from the user and checks if all the integers are the same. If they are not the same, the program should sort the integers in ascending order and display the sorted array. If all integers are the same, it should simply indicate this.Help Philip by writing a program to achieve this functionality.The input consists of an array of 10 integers separated by space.If the numbers are not the same, the output displays "Arranged elements are: " followed by the input array sorted array in ascending order separated by space.If the numbers are the same, the output displays "All numbers are the same".
+//Checking 1D Array
+#include<stdio.h>
+int main(){
+    int arr[10];
+    for(int i=0;i<10;i++){
+        scanf("%d ",&arr[i]);
+    }
+    int a=arr[0],p=10;
+    for(int i=0;i<10;i++){
+        if (arr[i]==a){
+            p=0;
+            continue;
+        }
+        else{
+            p=10;
+            break;
+        }
+    }
+    if(p==0){
+        printf("All elements are the same");
+    }
+    else{
+        for(int i=0;i<10;i++){
+            for(int j=i+1;j<10;j++){
+                if(arr[i]>arr[j]){
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        printf("Arranged elements are: ");
+        for(int i=0;i<10;i++){
+            printf("%d ",arr[i]);
+        }
+    }
+    return 0;
+    
+}
+
+20.Lakshith and Manav, best friends, enjoy summer vacation playing games. This time, they delve into matrix manipulation. They write a program to determine if a matrix is symmetric by comparing it with its transpose.If the matrix is symmetric, they celebrate their victory; otherwise, they continue their quest for the perfect game.The first line of input consists of an integer N, representing the size of the matrix.The next N lines consist of N space-separated integers, representing the matrix elements.The first line of output prints "Original matrix:".The next N lines print N elements in each line representing the original matrix.The following line prints "Transpose matrix:".The next N lines print N elements in each line representing the transpose of the original matrix.The last line prints one of the following:If both matrices are symmetric, print "Matrix is Symmetric!"If both matrices are not symmetric, print "Matrix is not Symmetric!".
+//Checking Matrix is Symmetric or not
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int matrix[n][n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%d ",&matrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Original matrix:\n");
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            printf("%d ",matrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Transpose matrix:\n");
+    int transpose_matrix[n][n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            printf("%d ",matrix[j][i]);
+            transpose_matrix[i][j]=matrix[j][i];
+            scanf("%d ",&transpose_matrix[i][j]);
+        }
+        printf("\n");
+    }
+    int p=10;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if (matrix[i][j]==transpose_matrix[i][j]){
+                continue;
+            }
+            else{
+                p=0;
+                break;
+            }
+        }
+        
+    }
+    if(p==10){
+        printf("Matrix is Symmetric!");
+    }
+    else{
+        printf("Matrix is not Symmetric!");
+    }
+    
+    return 0;
+}
+
+21.Akar is working on a program that modifies a given matrix based on the presence of zeros in its rows and columns. He needs your help to write a program that takes an input matrix and modifies it as follows: if a cell in the matrix contains a zero, then the entire row and column of that cell should be set to zero.Assist him by writing the program.The first line consists of two integers r and c, separated by a space, representing the number of rows and columns in the matrix.The next r lines contain c space-separated integers, representing the elements of the matrix.If there are zeros in the matrix, display the modified matrix after replacing rows and columns with zeros if any element in the row or column is zero. If there are no zeros in the matrix, display the given matrix as it is.
+#include<stdio.h>
+int main(){
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int matrix[r][c];
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            scanf("%d ",&matrix[i][j]);
+        }
+    }
+    int rows[r]={0};
+    int cols[c]={0};
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(matrix[i][j]==0){
+                rows[i]=1;
+                cols[j]=1;
+            }
+        }
+    }
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(rows[i]==1||cols[j]==1){
+                matrix[i][j]=0;
+            }
+        }
+    }
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            printf("%d ",matrix[i][j]);
+        }
+        printf("\n");
+    }   
+    return 0;
+}
+
+22.Green Wood High School is set to premiere a programming tournament for high school-aged math and science students across the country. Based on this contest, the school has called for all interested candidates to take a qualifying test at the school premises.Before the qualifier, the event coordinators chose the problem sets and wanted to code them beforehand to ease the evaluation procedure. They wanted your help to code a few of the problem sets, one of which involved the Fibonacci series.We all know the Fibonacci sequence, each term of it is the sum of the two previous terms. For Example, F(1) = 1, F(2) = 1, F(3) = 2, and so on.In this problem, we need to find just the last digit of a Fibonacci series termed F(n), where n is the input. Write a program using functions to output the last digit of the term F(n). 
+//C Program for Fibonacci series
+#include<stdio.h>
+int fibonacci(int n){
+    if(n>=2){
+        return fibonacci(n-1)+fibonacci(n-2);
+    }
+    else if(n==0||n==1){
+        return n;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int c;
+    scanf("%d",&c);
+    int p=fibonacci(c);
+    printf("%d",p%10);
+    return 0;
+}
+
+23.Bob is working on a text analysis tool and needs your help in developing a program that classifies characters in a given string. The program should count the number of vowels, consonants, digits, and special characters in the input string.The input consists of a String, representing the text in which the counts of vowels, consonants, digits, and special characters will be determined.The first line of output prints "Vowels: " followed by an integer representing the count of vowels in the input string.The second line prints "Consonants: " followed by an integer representing the count of consonants in the input string.The third line prints "Digits: " followed by an integer representing the count of digits in the input string.The fourth line prints "Special Characters: " followed by an integer representing the count of special characters in the input string.The length of the input string will not exceed 150 characters.
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char str[150];
+    int vow=0,con=0,dig=0,spe=0;
+    fgets(str,150,stdin);
+    for(int i=0;i<strlen(str);i++){
+        int p=(int)str[i];
+        if(p>=48 and p<=57){
+            dig++;
+        }
+        else if(p==97||p==101||p==105||p==111||p==117||p==65||p==73||p==79||p==85){
+            vow++;
+        }
+        else if((p>65 and p<=90) or (p>97 and p<=122)){
+            con++;
+        }
+        else{
+            spe++;
+        }
+    }
+    printf("Vowels: %d\n",vow);
+    printf("Consonants: %d\n",con);
+    printf("Digits: %d\n",dig);
+    printf("Special Characters: %d\n",spe);
+    return 0;
+}
+
+24.Teju considers the number 3 unlucky and wishes to remove the element located at the 3rd position in an array, considering the first position in the array as position 1.Write a program that eliminates the element at this 3rd position and then displays the modified array.The first line consists of an integer n, the size of the array.The second line consists of n space-separated integers, representing the elements of the array.In this scenario, the test cases will fall under the following constraints:3 ≤ n ≤ 15 and 1 ≤ elements ≤ 1000.
+//Removing 3rd element from an array
+#include<stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int elements[n];
+    for(int i=1;i<=n;i++){
+        scanf("%d ",&elements[i]);
+    }
+    for(int i=1;i<=n;i++){
+        if(i==3){
+            continue;
+        }
+        else{
+            printf("%d ",elements[i]);
+        }
+    }
+    return 0;
+}
+
+25.Write a program that lets the user enter the total rainfall for each of the 12 months in an array. The program should calculate and display the total rainfall for the year, the average monthly rainfall, and the months with the highest and lowest amounts of rainfall.The input consists of a list of 12 integers that represent the value of rainfall each month, separated by space.The first line of output prints the total rainfall.The second line of output prints the integer that represents the average rainfall.
+The third line of output prints the month with the lowest rainfall.The fourth line of output prints the month with the highest rainfall.Print "Invalid input" if input values<0.
+//Rainfall for 12 months
+#include<stdio.h>
+int main(){
+    int avg,sum=0;
+    int rain[12];
+    for(int i=0;i<12;i++){
+        scanf("%d ",&rain[i]);
+        if(rain[i]<0){
+            printf("Invalid Input");
+            break;
+        }
+        else {
+            
+            sum+=rain[i];
+            continue;
+        }
+    }
+    for(int i=0;i<12;i++){
+        if (rain[i]>0){
+            avg=sum/12;
+            printf("Total rainfall : %d\n",sum);
+            printf("Average Rainfall : %d\n",avg);
+            int q=rain[0],r=rain[0];
+            int a=0,b=0;
+            for(int i=0;i<12;i++){
+                if(rain[i]<q){
+                    q=rain[i];
+                    a=i;
+                }
+                else{
+                    continue;
+                }
+            }
+            for(int i=0;i<12;i++){
+                if(rain[i]>r){
+                    r=rain[i];
+                    b=i;
+                }
+                else{
+                    continue;
+                }
+            }
+            printf("Lowest rainfall month : %d\n",a+1);
+            printf("Highest rainfall month : %d\n",b+1);
+        }
+        break;
+    }
+    return 0;
+}
+
+
 
 
